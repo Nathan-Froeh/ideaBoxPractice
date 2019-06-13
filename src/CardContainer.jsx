@@ -9,11 +9,13 @@ export class CardContainer extends Component {
 
   render() {
     console.log('Rendering CardContainer')
-    
+    console.log(this.props.ideas)
     return (
       <section>
-        card container
-        <Card/>
+        {this.props.ideas.map(idea => {
+          return <Card key={idea.id} id={idea.id} title={idea.title} 
+          body={idea.body}/>
+        })}
       </section>
 
     )

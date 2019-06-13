@@ -6,10 +6,12 @@ export class Card extends Component {
 
   render() {
     console.log('Card')
-
+    const {title, body} = this.props
     return(
       <article>
-        card
+        <p>{title}</p>
+        <p>{body}</p>
+        <button>Delete</button>
       </article>
 
     )

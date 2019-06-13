@@ -20,7 +20,6 @@ export class App extends Component {
     this.setState({
       ideas: [...this.state.ideas, idea]
     })
-    console.log(this.state.ideas)
   }
 
   render() {
