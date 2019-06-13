@@ -17,7 +17,10 @@ export class App extends Component {
   }
   
   handleAdd = (idea) => {
-    console.log(idea)
+    this.setState({
+      ideas: [...this.state.ideas, idea]
+    })
+    console.log(this.state.ideas)
   }
 
   render() {
@@ -33,4 +36,11 @@ export class App extends Component {
 }
 
 
+
+
+
+
 export default App;
+
+
+
