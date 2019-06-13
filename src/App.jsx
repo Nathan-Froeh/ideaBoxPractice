@@ -8,15 +8,25 @@ import './App.css';
 
 export class App extends Component {
 
-
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       ideas: []
+    }
+  }
+  
+  handleAdd = (idea) => {
+    console.log(idea)
+  }
 
   render() {
     console.log('Rendering App')
 
     return (
       <div className='App'>
-        <Form/>
-        <CardContainer/>
+        <Form handleAdd={this.handleAdd}/>
+        <CardContainer ideas={this.state.ideas}/>
       </div>
     )
   }
