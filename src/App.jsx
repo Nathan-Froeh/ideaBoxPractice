@@ -17,9 +17,11 @@ export class App extends Component {
   }
   
   handleAdd = (idea) => {
-    this.setState({
-      ideas: [...this.state.ideas, idea]
-    })
+    this.setState({ideas: [...this.state.ideas, idea]})
+  }
+
+  handleDelete = (id) => {
+    this.setState({ideas: this.state.ideas.filter(idea => idea.id !== id)})
   }
 
   render() {
@@ -28,7 +30,8 @@ export class App extends Component {
     return (
       <div className='App'>
         <Form handleAdd={this.handleAdd}/>
-        <CardContainer ideas={this.state.ideas}/>
+        <CardContainer ideas={this.state.ideas} 
+          handleDelete={this.handleDelete}/>
       </div>
     )
   }

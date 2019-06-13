@@ -5,13 +5,13 @@ export class Card extends Component {
 
 
   render() {
-    console.log('Card')
-    const {title, body} = this.props
+    console.log('Rendering Card')
+    const {title, body, id} = this.props
     return(
       <article>
         <p>{title}</p>
         <p>{body}</p>
-        <button>Delete</button>
+        <button onClick={() => this.props.handleDelete(id)}>Delete</button>
       </article>
 
     )
