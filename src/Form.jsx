@@ -19,11 +19,16 @@ export class Form extends Component {
     })
   }
 
-  // handleSubmit = () => {
-
-
-  //   this.props.handleAdd()
-  // }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const {title, body} = this.state;
+    const idea = {
+      title: title,
+      body: body,
+      id: Date.now()
+    }
+    this.props.handleAdd(idea)
+  }
 
   render() {
     console.log('Rendering Form')
