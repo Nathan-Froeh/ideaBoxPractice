@@ -24,6 +24,8 @@ export class App extends Component {
     this.setState({ideas: this.state.ideas.filter(idea => idea.id !== id)})
   }
 
+  
+
   render() {
     console.log('Rendering App')
 
