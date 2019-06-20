@@ -15,7 +15,12 @@ export class CardContainer extends Component {
             id={idea.id} 
             title={idea.title} 
             body={idea.body} 
+            star={idea.star}
+            quality={idea.quality}
             handleDelete={this.props.handleDelete}
+            handleUpdate={this.props.handleUpdate}
+            handleStar={this.props.handleStar}
+            handleQuality={this.props.handleQuality}
         />
       )
     })
