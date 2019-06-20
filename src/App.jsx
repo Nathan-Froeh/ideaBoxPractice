@@ -24,7 +24,14 @@ export class App extends Component {
     this.setState({ideas: this.state.ideas.filter(idea => idea.id !== id)})
   }
 
-  
+  handleUpdate = (id, title, body) => { 
+    this.state.ideas.forEach(idea => {
+      if(idea.id === id) {
+        idea.title = title;
+        idea.body = body;
+      }
+    })
+  }
 
   render() {
     console.log('Rendering App')
@@ -33,7 +40,9 @@ export class App extends Component {
       <div className='App'>
         <Form handleAdd={this.handleAdd}/>
         <CardContainer ideas={this.state.ideas} 
-          handleDelete={this.handleDelete}/>
+          handleDelete={this.handleDelete}
+          handleUpdate={this.handleUpdate}
+          />
       </div>
     )
   }

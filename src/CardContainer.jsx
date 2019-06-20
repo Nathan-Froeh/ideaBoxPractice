@@ -16,6 +16,7 @@ export class CardContainer extends Component {
             title={idea.title} 
             body={idea.body} 
             handleDelete={this.props.handleDelete}
+            handleUpdate={this.props.handleUpdate}
         />
       )
     })
