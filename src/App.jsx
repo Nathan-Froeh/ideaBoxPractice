@@ -33,6 +33,15 @@ export class App extends Component {
     })
   }
 
+  handleStar = (id) => {
+    this.state.ideas.forEach(idea => {
+      if(idea.id === id) {
+        idea.star = !idea.star
+      }
+    })
+  }
+  
+
   render() {
     console.log('Rendering App')
 
@@ -42,6 +51,7 @@ export class App extends Component {
         <CardContainer ideas={this.state.ideas} 
           handleDelete={this.handleDelete}
           handleUpdate={this.handleUpdate}
+          handleStar={this.handleStar}
           />
       </div>
     )

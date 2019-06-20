@@ -25,7 +25,9 @@ export class Form extends Component {
     const idea = {
       title: title,
       body: body,
-      id: Date.now()
+      id: Date.now(),
+      star: false,
+      quality: 0
     }
     this.props.handleAdd(idea)
   }
