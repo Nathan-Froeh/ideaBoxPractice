@@ -36,11 +36,19 @@ export class App extends Component {
   handleStar = (id) => {
     this.state.ideas.forEach(idea => {
       if(idea.id === id) {
-        idea.star = !idea.star
+        idea.star = !idea.star;
       }
     })
   }
   
+  handleQuality = (id, quality) => {
+    console.log('handleQuality')
+    this.state.ideas.forEach(idea => {
+      if(idea.id === id) {
+        idea.quality = quality
+      }
+    })
+  }
 
   render() {
     console.log('Rendering App')
@@ -48,10 +56,12 @@ export class App extends Component {
     return (
       <div className='App'>
         <Form handleAdd={this.handleAdd}/>
-        <CardContainer ideas={this.state.ideas} 
+        <CardContainer 
+          ideas={this.state.ideas} 
           handleDelete={this.handleDelete}
           handleUpdate={this.handleUpdate}
           handleStar={this.handleStar}
+          handleQuality={this.handleQuality}
           />
       </div>
     )

@@ -27,7 +27,7 @@ export class Form extends Component {
       body: body,
       id: Date.now(),
       star: false,
-      quality: 0
+      quality: 'Swill'
     }
     this.props.handleAdd(idea)
   }
