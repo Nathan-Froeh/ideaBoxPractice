@@ -1,38 +1,13 @@
-import React, { Component } from 'react';
-import Card from './Card';
-
-
+import React, { Component } from 'react'
 
 export class CardContainer extends Component {
-
   render() {
-    console.log('Rendering CardContainer')
-    console.log(this.props.ideas)
-    const cards = this.props.ideas.map(idea => {
-      return(
-         <Card 
-            key={idea.id} 
-            id={idea.id} 
-            title={idea.title} 
-            body={idea.body} 
-            star={idea.star}
-            quality={idea.quality}
-            handleDelete={this.props.handleDelete}
-            handleUpdate={this.props.handleUpdate}
-            handleStar={this.props.handleStar}
-            handleQuality={this.props.handleQuality}
-        />
-      )
-    })
-    
     return (
-      <section>
-        {cards}
-      </section>
-
+      <div>
+        
+      </div>
     )
   }
 }
 
-
-export default CardContainer;
+export default CardContainer

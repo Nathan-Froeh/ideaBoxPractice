@@ -1,49 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export class Form extends Component {
 
   constructor(props) {
     super(props)
-  
     this.state = {
-       title: '',
-       body: ''
+      title: '',
+      body: ''
     }
   }
-  
 
-  handleUpdate = (e) => {
-    const {name, value} = e.target;
-    this.setState({
-      [name]: value
-    })
-  }
-
-  handleSubmit = (e) => {
+  handleAddIdea = (e) => {
     e.preventDefault()
-    const {title, body} = this.state;
     const idea = {
-      title: title,
-      body: body,
+      title: this.state.title,
+      body: this.state.body,
       id: Date.now(),
       star: false,
-      quality: 'Swill'
+      quality: 'swill'
     }
-    this.props.handleAdd(idea)
+    this.props.addIdea(idea)
   }
 
-  render() {
-    console.log('Rendering Form')
 
-    const {title, body} = this.state;
+  render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" name='title' value={title} onChange={this.handleUpdate}/>
-        <input type="text" name='body' value={body} onChange={this.handleUpdate}/>
-        <input type="submit"/>
+      <form onSubmit={this.handleAddIdea}>
+        <input type="text" placeholder='Title' name='inputTitle'/>
+        <input type="text" placeholder='Body' name='inputBody'/>
+        <input type="submit" value='Submit'/>
       </form>
     )
   }
 }
 
-export default Form;
+export default Form
