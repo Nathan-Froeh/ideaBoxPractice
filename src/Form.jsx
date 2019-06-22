@@ -27,6 +27,7 @@ export class Form extends Component {
   this.setState({[name]: value})
   }
 
+
   render() {
     console.log('Render Form')
     return (

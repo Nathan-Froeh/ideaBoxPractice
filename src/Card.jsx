@@ -7,6 +7,7 @@ export class Card extends Component {
       <article>
         <p>{this.props.idea.title}</p>
         <p>{this.props.idea.body}</p>
+        <button onClick={() => this.props.delete(this.props.idea.id)}>Delete</button>
       </article>
     )
   }
