@@ -17,6 +17,7 @@ export class App extends Component {
 
 
   render() {
+    console.log('Render App')
     return (
       <main>
         <Form addIdea={this.addIdea}/>

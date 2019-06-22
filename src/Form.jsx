@@ -28,6 +28,7 @@ export class Form extends Component {
   }
 
   render() {
+    console.log('Render Form')
     return (
       <form onSubmit={this.handleAddIdea}>
         <input 
