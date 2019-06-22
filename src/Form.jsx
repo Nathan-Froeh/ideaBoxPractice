@@ -22,12 +22,26 @@ export class Form extends Component {
     this.props.addIdea(idea)
   }
 
+  handleUpdate = (e) => {
+  const {name, value} = e.target
+  this.setState({[name]: value})
+  }
 
   render() {
     return (
       <form onSubmit={this.handleAddIdea}>
-        <input type="text" placeholder='Title' name='inputTitle'/>
-        <input type="text" placeholder='Body' name='inputBody'/>
+        <input 
+        type="text" 
+        placeholder='Title' 
+        name='title' 
+        onChange={this.handleUpdate}
+        />
+        <input 
+        type="text" 
+        placeholder='Body' 
+        name='body'
+        onChange={this.handleUpdate}
+        />
         <input type="submit" value='Submit'/>
       </form>
     )
