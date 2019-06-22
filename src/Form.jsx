@@ -42,7 +42,10 @@ export class Form extends Component {
         name='body'
         onChange={this.handleUpdate}
         />
-        <input type="submit" value='Submit'/>
+        <input 
+        type="submit" 
+        value='Submit'
+        />
       </form>
     )
   }

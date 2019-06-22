@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Form from './Form'
+import CardContainer from './CardContainer'
 
 export class App extends Component {
 
   constructor(props) {
     super(props)
-  
     this.state = {
        ideas: []
     }
@@ -20,6 +20,7 @@ export class App extends Component {
     return (
       <main>
         <Form addIdea={this.addIdea}/>
+        <CardContainer ideas={this.state.ideas}/>
       </main>
     )
   }
