@@ -3,37 +3,41 @@ import ContentEditable from 'react-contenteditable'
 
 export class Card extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      title: this.props.idea.title,
-      body: this.props.idea.body
-    }
-  }
-
   handleTitle = (e) => {
     const {id, body} = this.props.idea
-    this.setState({title: e.target.value})
     this.props.updateIdea(id, e.target.value, body)
   }
 
   handleBody = (e) => {
     const {id, title} = this.props.idea
-    this.setState({body: e.target.value})
     this.props.updateIdea(id, title, e.target.value)
+  }
+
+  handleQuality = (num) => {
+    const stats = ['Swill', 'Not Bad', 'Cool', 'Sweet', 'Ledgen-Dairy']
+    const index = stats.indexOf(this.props.idea.quality)
+    if(index !== 0 && num === -1) {
+      this.props.quality(this.props.idea.id, stats[index + num])
+    } else if(index !== 4 && num === 1) {
+      this.props.quality(this.props.idea.id, stats[index + num])
+    }
   }
 
   render() {
     console.log('Render Card')
-    const {id} = this.props.idea
-    const {title, body} = this.state
+    console.log(this.props.idea.star)
+    const {id, title, body, star, quality} = this.props.idea
     return (
       <article>
+        <button onClick={() => this.props.star(id)}>{`${star}`}</button>
         <ContentEditable html={title} onChange={this.handleTitle}/>
         <ContentEditable html={body} onChange={this.handleBody}/>
         <button onClick={() => this.props.delete(id)}>
           Delete
         </button>
+        <button onClick={() => this.handleQuality(1)}>UP</button>
+        <p>{quality}</p>
+        <button onClick={() => this.handleQuality(-1)}>DOWN</button>
       </article>
     )
   }
@@ -44,4 +48,3 @@ export default Card
 
 
 
-// content editable
