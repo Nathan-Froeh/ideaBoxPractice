@@ -13,6 +13,16 @@ export class Card extends Component {
     this.props.updateIdea(id, title, e.target.value)
   }
 
+  handleQuality = (num) => {
+    const stats = ['Swill', 'Not Bad', 'Cool', 'Sweet', 'Ledgen-Dairy']
+    const index = stats.indexOf(this.props.idea.quality)
+    if(index !== 0 && num === -1) {
+      this.props.quality(this.props.idea.id, stats[index + num])
+    } else if(index !== 4 && num === 1) {
+      this.props.quality(this.props.idea.id, stats[index + num])
+    }
+  }
+
   render() {
     console.log('Render Card')
     console.log(this.props.idea.star)
@@ -25,9 +35,9 @@ export class Card extends Component {
         <button onClick={() => this.props.delete(id)}>
           Delete
         </button>
-        <button>UP</button>
+        <button onClick={() => this.handleQuality(1)}>UP</button>
         <p>{quality}</p>
-        <button>DOWN</button>
+        <button onClick={() => this.handleQuality(-1)}>DOWN</button>
       </article>
     )
   }

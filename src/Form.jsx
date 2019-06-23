@@ -17,7 +17,7 @@ export class Form extends Component {
       body: this.state.body,
       id: Date.now(),
       star: false,
-      quality: 'swill'
+      quality: 'Swill'
     }
     this.props.addIdea(idea)
   }

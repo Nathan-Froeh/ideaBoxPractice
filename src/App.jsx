@@ -39,7 +39,14 @@ export class App extends Component {
     })})
   }
 
-
+  updateQuality = (id, quality) => {
+    this.setState({ideas: this.state.ideas.map(idea => {
+      if(idea.id === id) {
+        idea.quality = quality
+      }
+      return idea
+    })})
+  }
 
   render() {
     console.log('Render App')
@@ -51,6 +58,7 @@ export class App extends Component {
         delete={this.handleDelete}
         updateIdea={this.handleIdea}
         star={this.handleStar}
+        quality={this.updateQuality}
         />
       </main>
     )
