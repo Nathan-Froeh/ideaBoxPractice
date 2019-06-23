@@ -16,8 +16,18 @@ export class App extends Component {
   }
 
   handleDelete = (id) => {
-    // console.log(id)
     this.setState({ideas: this.state.ideas.filter(idea => idea.id !== id)})
+  }
+
+  handleIdea = (id, title, body) => {
+    console.log('winning')
+    this.setState({ideas: this.state.ideas.map(idea => {
+      if (idea.id === id) {
+        idea.title = title
+        idea.body = body
+      }
+      return idea;
+    })})
   }
 
   render() {
@@ -25,7 +35,11 @@ export class App extends Component {
     return (
       <main>
         <Form addIdea={this.addIdea}/>
-        <CardContainer ideas={this.state.ideas} delete={this.handleDelete}/>
+        <CardContainer 
+        ideas={this.state.ideas} 
+        delete={this.handleDelete}
+        updateIdea={this.handleIdea}
+        />
       </main>
     )
   }
