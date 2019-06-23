@@ -11,6 +11,7 @@ export class CardContainer extends Component {
       key={idea.id} 
       delete={this.props.delete}
       updateIdea={this.props.updateIdea}
+      star={this.props.star}
       />
     })
     return (

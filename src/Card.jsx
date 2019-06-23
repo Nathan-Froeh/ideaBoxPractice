@@ -15,14 +15,19 @@ export class Card extends Component {
 
   render() {
     console.log('Render Card')
-    const {id, title, body} = this.props.idea
+    console.log(this.props.idea.star)
+    const {id, title, body, star, quality} = this.props.idea
     return (
       <article>
+        <button onClick={() => this.props.star(id)}>{`${star}`}</button>
         <ContentEditable html={title} onChange={this.handleTitle}/>
         <ContentEditable html={body} onChange={this.handleBody}/>
         <button onClick={() => this.props.delete(id)}>
           Delete
         </button>
+        <button>UP</button>
+        <p>{quality}</p>
+        <button>DOWN</button>
       </article>
     )
   }

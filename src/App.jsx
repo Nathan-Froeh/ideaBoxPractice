@@ -30,6 +30,17 @@ export class App extends Component {
     })})
   }
 
+  handleStar = (id) => {
+    this.setState({ideas: this.state.ideas.map(idea => {
+      if(idea.id === id) {
+        idea.star = !idea.star
+      }
+      return idea;
+    })})
+  }
+
+
+
   render() {
     console.log('Render App')
     return (
@@ -39,6 +50,7 @@ export class App extends Component {
         ideas={this.state.ideas} 
         delete={this.handleDelete}
         updateIdea={this.handleIdea}
+        star={this.handleStar}
         />
       </main>
     )
