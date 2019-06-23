@@ -1,22 +1,17 @@
-
-import React, { Component } from 'react';
-import Form from './Form';
-import CardContainer from './CardContainer';
-import './App.css';
-
-
+import React, { Component } from 'react'
+import Form from './Form'
+import CardContainer from './CardContainer'
 
 export class App extends Component {
 
   constructor(props) {
     super(props)
-  
     this.state = {
        ideas: []
     }
   }
-  
-  handleAdd = (idea) => {
+
+  addIdea = (idea) => {
     this.setState({ideas: [...this.state.ideas, idea]})
   }
 
@@ -24,56 +19,30 @@ export class App extends Component {
     this.setState({ideas: this.state.ideas.filter(idea => idea.id !== id)})
   }
 
-  handleUpdate = (id, title, body) => { 
-    this.state.ideas.forEach(idea => {
-      if(idea.id === id) {
-        idea.title = title;
-        idea.body = body;
+  handleIdea = (id, title, body) => {
+    console.log('winning')
+    this.setState({ideas: this.state.ideas.map(idea => {
+      if (idea.id === id) {
+        idea.title = title
+        idea.body = body
       }
-    })
-  }
-
-  handleStar = (id) => {
-    this.state.ideas.forEach(idea => {
-      if(idea.id === id) {
-        idea.star = !idea.star;
-      }
-    })
-  }
-  
-  handleQuality = (id, quality) => {
-    console.log('handleQuality')
-    this.state.ideas.forEach(idea => {
-      if(idea.id === id) {
-        idea.quality = quality
-      }
-    })
+      return idea;
+    })})
   }
 
   render() {
-    console.log('Rendering App')
-
+    console.log('Render App')
     return (
-      <div className='App'>
-        <Form handleAdd={this.handleAdd}/>
+      <main>
+        <Form addIdea={this.addIdea}/>
         <CardContainer 
-          ideas={this.state.ideas} 
-          handleDelete={this.handleDelete}
-          handleUpdate={this.handleUpdate}
-          handleStar={this.handleStar}
-          handleQuality={this.handleQuality}
-          />
-      </div>
+        ideas={this.state.ideas} 
+        delete={this.handleDelete}
+        updateIdea={this.handleIdea}
+        />
+      </main>
     )
   }
 }
 
-
-
-
-
-
-export default App;
-
-
-
+export default App
