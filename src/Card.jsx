@@ -3,30 +3,19 @@ import ContentEditable from 'react-contenteditable'
 
 export class Card extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      title: this.props.idea.title,
-      body: this.props.idea.body
-    }
-  }
-
   handleTitle = (e) => {
     const {id, body} = this.props.idea
-    this.setState({title: e.target.value})
     this.props.updateIdea(id, e.target.value, body)
   }
 
   handleBody = (e) => {
     const {id, title} = this.props.idea
-    this.setState({body: e.target.value})
     this.props.updateIdea(id, title, e.target.value)
   }
 
   render() {
     console.log('Render Card')
-    const {id} = this.props.idea
-    const {title, body} = this.state
+    const {id, title, body} = this.props.idea
     return (
       <article>
         <ContentEditable html={title} onChange={this.handleTitle}/>
@@ -44,4 +33,3 @@ export default Card
 
 
 
-// content editable
